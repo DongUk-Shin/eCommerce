@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Sing Up</title>
+</head>
+<body>
+
+<h1>
+    제품 등록
+</h1>
+
+<form action="/product/add" method="post">
+
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="price">가격:</label>
+    <input type="text" id="price" name="price" required><br>
+
+    <label for="quantity">수량:</label>
+    <input type="text" id="quantity" name="quantity" required><br>
+
+    <input type="submit" value="등록">
+</form>
+
+</body>
+</html>

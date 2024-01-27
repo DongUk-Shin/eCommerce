@@ -25,7 +25,6 @@ public class Member {
 
     public static Member toMember(MemberDTO memberDTO) {
         Member member = new Member();
-        member.setId(memberDTO.getId());
         member.setEmail(memberDTO.getEmail());
         member.setName(memberDTO.getName());
         member.setPassword(memberDTO.getPassword());

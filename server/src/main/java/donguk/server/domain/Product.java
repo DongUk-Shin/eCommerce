@@ -24,5 +24,12 @@ public class Product {
     @Column
     private Long quantity;
 
+    public static Product toProduct(ProductDTO productDTO) {
+        Product product = new Product();
+        product.setName(productDTO.getName());
+        product.setPrice(productDTO.getPrice());
+        product.setQuantity(productDTO.getQuantity());
+        return product;
+    }
 
 }
