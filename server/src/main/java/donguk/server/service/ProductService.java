@@ -6,16 +6,22 @@ import donguk.server.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public ProductDTO save(ProductDTO productDTO) {
+    public void save(ProductDTO productDTO) {
         Product product = Product.toProduct(productDTO);
         System.out.println("product = " + product);
         productRepository.save(product);
-        return productDTO;
+    }
+
+    public List<Product> findAll(){
+        return productRepository.findAll();
     }
 }
