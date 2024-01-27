@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Sing Up</title>
+</head>
+<body>
+
+<h1>
+    Sing Up
+</h1>
+
+<form action="/member/signup" method="post">
+
+    <label for="email">이메일:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="password">비밀번호:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <label for="name">이름:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <input type="submit" value="가입하기">
+</form>
+
+</body>
+</html>
