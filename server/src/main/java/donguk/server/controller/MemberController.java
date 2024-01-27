@@ -3,6 +3,7 @@ package donguk.server.controller;
 import donguk.server.domain.Member;
 import donguk.server.domain.MemberDTO;
 import donguk.server.service.MemberService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +17,12 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("/member/signup")
-    public String singup() {
+    public String signupForm() {
         return "member/signup";
     }
 
     @PostMapping("/member/signup")
-    public String singup(@ModelAttribute MemberDTO memberDTO) {
+    public String signup(@ModelAttribute MemberDTO memberDTO) {
         //System.out.println("memberDTO = " + memberDTO);
         memberService.save(memberDTO);
         return "redirect:/";
@@ -29,8 +30,20 @@ public class MemberController {
 
 
     @GetMapping("/member/signin")
-    public String signin() {
+    public String signinForm() {
         return "member/signin";
     }
+
+    @PostMapping("/member/signin")
+    public String signin(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
+        MemberDTO result = memberService.signin(memberDTO);
+        if (result != null) {
+            session.setAttribute("signinEmail", result.getEmail());
+            return "redirect:/";
+        } else {
+            return "member/signin";
+        }
+    }
+
 
 }

@@ -2,10 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Sing In</title>
+    <title>Sign In</title>
 </head>
 <body>
 
-Sing In
+<h1>
+    Sign In
+</h1>
+
+<form action="/member/signin" method="post">
+
+    <label for="email">이메일:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="password">비밀번호:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <input type="submit" value="로그인">
+</form>
+
 </body>
 </html>

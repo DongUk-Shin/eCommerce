@@ -6,6 +6,9 @@ import donguk.server.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -18,4 +21,20 @@ public class MemberService {
         memberRepository.save(member);
     }
 
+    public MemberDTO signin(MemberDTO memberDTO) {
+
+        Optional<Member> memberOptional = memberRepository.findByEmail(memberDTO.getEmail());
+
+        if (memberOptional.isPresent()) {
+            Member member = memberOptional.get();
+
+            if (member.getPassword().equals(memberDTO.getPassword())) {
+                return MemberDTO.toMember(member);
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
 }
