@@ -86,7 +86,9 @@
             <!-- 타임리프 적용 -->
             <div class="col mb-5" th:each="product : ${products}">
                 <div class="card h-100">
-                    <img class="card-img-top" th:src="@{'/image/product/' + ${product.fileName}}" src=""  alt="서버 재시작 하면 보임" />
+
+                    <img class="card-img-top" th:src="@{${product.getFilePath()}}" src=""  alt="서버 재시작 하면 보임" />
+
                     <div class="card-body p-4">
                         <div class="text-center">
                             <h5 class="fw-bolder" th:text="${product.name}">제품 이름</h5>

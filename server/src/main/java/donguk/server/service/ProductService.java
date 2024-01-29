@@ -20,23 +20,21 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     /**
-     * 이미지 저장
-     * 이미지 업로드 후 서버를 refresh 해야 이미지가 로드되는 이슈가 있음 
+     * WebMvcConfig 에서 상대경로 -> 절대경로로 바꾸는 로직
+     * 프로젝트 외부의 파일에 접근 가능 -> 이미지 업로드 시 바로 반영
      */
     public void save(ProductDTO productDTO, MultipartFile file) throws IOException {
-        String fileDir = System.getProperty("user.dir") + "/src/main/resources/static/image/product/";
-        System.out.println("fileDir = " + fileDir);
-
         Product product = Product.toProduct(productDTO);
 
         UUID uuid = UUID.randomUUID();
         String savedFileName = uuid + "_" + file.getOriginalFilename();
-        System.out.println("savedFileName = " + savedFileName);
 
         product.setFileOriName(file.getOriginalFilename());
         product.setFileName(savedFileName);
-        product.setFilePath(fileDir + savedFileName);
 
+        product.setFilePath("image/product/" + savedFileName); //상대 경로로 파일 경로 저장
+
+        String fileDir = "C:/Git/eCommerce/image/product/"; //실제 저장 하는 절대 경로
         file.transferTo(new File(fileDir + savedFileName));
         productRepository.save(product);
     }
