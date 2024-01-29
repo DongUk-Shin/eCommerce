@@ -28,7 +28,7 @@ public class ProductService {
 
         product.setFileOriName(file.getOriginalFilename());
         product.setFileName(savedFileName);
-        product.setFileUrl(fileDir);
+        product.setFilePath(fileDir + savedFileName);
 
         file.transferTo(new File(fileDir + savedFileName));
         productRepository.save(product);

@@ -29,7 +29,7 @@ public class Product {
 
     @Column private String fileName;
     @Column private String fileOriName;
-    @Column private String fileUrl;
+    @Column private String filePath;
 
 
     public static Product toProduct(ProductDTO productDTO) {
@@ -39,7 +39,7 @@ public class Product {
         product.setQuantity(productDTO.getQuantity());
         product.setFileName(productDTO.getFileName());
         product.setFileOriName(productDTO.getFileOriName());
-        product.setFileUrl(productDTO.getFileUrl());
+        product.setFilePath(productDTO.getFilePath());
         return product;
     }
 

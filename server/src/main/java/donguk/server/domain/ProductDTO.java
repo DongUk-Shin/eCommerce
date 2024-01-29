@@ -16,7 +16,7 @@ public class ProductDTO {
     private Long quantity;
     private String fileName;
     private String fileOriName;
-    private String fileUrl;
+    private String filePath;
 
     public static ProductDTO toProductDTO(Product product) {
         ProductDTO productDTO = new ProductDTO();
@@ -26,7 +26,7 @@ public class ProductDTO {
 
         productDTO.setFileName(product.getFileName());
         productDTO.setFileOriName(product.getFileOriName());
-        productDTO.setFileUrl(product.getFileUrl());
+        productDTO.setFilePath(product.getFilePath());
         return productDTO;
     }
 }
