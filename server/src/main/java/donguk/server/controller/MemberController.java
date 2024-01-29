@@ -38,6 +38,7 @@ public class MemberController {
     public String signin(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
         MemberDTO result = memberService.signin(memberDTO);
         if (result != null) {
+            session.setAttribute("signinName", result.getName());
             session.setAttribute("signinEmail", result.getEmail());
             return "redirect:/";
         } else {
@@ -45,5 +46,15 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/member/account")
+    public String accountForm() {
+        return "member/account";
+    }
 
+
+    @GetMapping("/member/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
 }
