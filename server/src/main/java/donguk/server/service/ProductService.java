@@ -19,12 +19,19 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
+    /**
+     * 이미지 저장
+     * 이미지 업로드 후 서버를 refresh 해야 이미지가 로드되는 이슈가 있음 
+     */
     public void save(ProductDTO productDTO, MultipartFile file) throws IOException {
-        String fileDir = "C:/Git/eCommerce/image/product/";
+        String fileDir = System.getProperty("user.dir") + "/src/main/resources/static/image/product/";
+        System.out.println("fileDir = " + fileDir);
+
         Product product = Product.toProduct(productDTO);
 
         UUID uuid = UUID.randomUUID();
         String savedFileName = uuid + "_" + file.getOriginalFilename();
+        System.out.println("savedFileName = " + savedFileName);
 
         product.setFileOriName(file.getOriginalFilename());
         product.setFileName(savedFileName);

@@ -1,114 +1,114 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>eCommerce</title>
-        <!-- 나중에 아이콘 지정하기 -->
-        <link th:href="@{/css/styles.css}"
-                href="../static/css/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        
-        <!-- 내비바-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">자취몰.com</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="#!">Home</a></li>
-                    </ul>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>eCommerce</title>
+    <!-- 나중에 아이콘 지정하기 -->
+    <link th:href="@{/css/styles.css}"
+          href="../static/css/styles.css" rel="stylesheet" />
+</head>
+<body>
 
-                    <ul class="navbar-nav me-4">
-                        <li class="nav-item" th:if="${session.signinName == null}">
-                            <a class="nav-link" th:href="@{/member/signin}"  href="">로그인</a>
-                        </li>
-                        <li class="nav-item" th:if="${session.signinName == null}">
-                            <a class="nav-link" th:href="@{/member/signup}" href="">회원가입</a>
-                        </li>
+<!-- 내비바-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">자취몰.com</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link" aria-current="page" href="#!">Home</a></li>
+            </ul>
 
-                        <li class="nav-item" th:if="${session.signinName != null}">
-                            <span class="nav-link" th:text="${session.signinName} + '님 안녕하세요'"></span>
-                        </li>
+            <ul class="navbar-nav me-4">
+                <li class="nav-item" th:if="${session.signinName == null}">
+                    <a class="nav-link" th:href="@{/member/signin}"  href="">로그인</a>
+                </li>
+                <li class="nav-item" th:if="${session.signinName == null}">
+                    <a class="nav-link" th:href="@{/member/signup}" href="">회원가입</a>
+                </li>
 
-                        <li class="nav-item" th:if="${session.signinName != null}">
-                            <a class="nav-link" th:href="@{/member/account}" href="">내 정보</a>
-                        </li>
-                        <li class="nav-item" th:if="${session.signinName != null}">
-                            <a class="nav-link" th:href="@{/member/logout}" href="">로그아웃</a>
-                        </li>
+                <li class="nav-item" th:if="${session.signinName != null}">
+                    <span class="nav-link" th:text="${session.signinName} + '님 안녕하세요'"></span>
+                </li>
 
-                    </ul>
+                <li class="nav-item" th:if="${session.signinName != null}">
+                    <a class="nav-link" th:href="@{/member/account}" href="">내 정보</a>
+                </li>
+                <li class="nav-item" th:if="${session.signinName != null}">
+                    <a class="nav-link" th:href="@{/member/logout}" href="">로그아웃</a>
+                </li>
 
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- 헤더-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shop in style</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                </div>
-            </div>
-        </header>
-        <!-- 섹션-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            </ul>
 
-                    <!-- 정적 -->
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <img class="card-img-top" th:src="@{/image/default_image.jpg}"  src="../static/image/default_image.jpg" alt="..." />
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <h5 class="fw-bolder">관리</h5>
-                                    <a th:href="@{/product/add}" href="">제품 추가</a>
-                                </div>
-                            </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- 헤더-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Shop in style</h1>
+            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+        </div>
+    </div>
+</header>
+<!-- 섹션-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <!-- 정적 -->
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{/image/default_image.jpg}"  src="" alt="" />
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder">관리</h5>
+                            <a th:href="@{/product/add}" href="">제품 추가</a>
                         </div>
                     </div>
-
-
-
-                    <!-- 타임리프 적용 -->
-                    <div class="col mb-5" th:each="product : ${products}">
-                        <div class="card h-100">
-                            <img class="card-img-top" th:src="@{/image/default_image.jpg}"  src="../static/image/default_image.jpg" alt="..." />
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <h5 class="fw-bolder" th:text="${product.name}">제품 이름</h5>
-                                    <p th:text="${product.price + ' 원'}">가격</p>
-                                    <p th:text="${product.quantity + ' 개'}">가격</p>
-                                </div>
-                            </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                            </div>
-                        </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
                     </div>
-
-                    
                 </div>
             </div>
-        </section>
 
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
 
-    </body>
+
+            <!-- 타임리프 적용 -->
+            <div class="col mb-5" th:each="product : ${products}">
+                <div class="card h-100">
+                    <img class="card-img-top" th:src="@{'/image/product/' + ${product.fileName}}" src=""  alt="서버 재시작 하면 보임" />
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder" th:text="${product.name}">제품 이름</h5>
+                            <p th:text="${product.price + ' 원'}">가격</p>
+                            <p th:text="${product.quantity + ' 개'}">가격</p>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+</footer>
+
+</body>
 </html>
