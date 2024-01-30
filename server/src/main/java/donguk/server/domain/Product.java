@@ -23,9 +23,9 @@ public class Product {
 
     @Column  private Long quantity; //수량
 
-   /* @Column private String content; //설명
+    @Column private String content; //설명
 
-    @Column private LocalDateTime upload;*/
+    //@Column private LocalDateTime uploadDate;
 
     @Column private String fileName;
     @Column private String fileOriName;
@@ -37,6 +37,8 @@ public class Product {
         product.setName(productDTO.getName());
         product.setPrice(productDTO.getPrice());
         product.setQuantity(productDTO.getQuantity());
+        product.setContent(productDTO.getContent());
+
         product.setFileName(productDTO.getFileName());
         product.setFileOriName(productDTO.getFileOriName());
         product.setFilePath(productDTO.getFilePath());

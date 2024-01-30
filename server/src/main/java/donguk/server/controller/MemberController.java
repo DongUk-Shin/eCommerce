@@ -9,19 +9,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/member")
 public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/member/signup")
+    @GetMapping("/signup")
     public String signupForm() {
         return "member/signup";
     }
 
-    @PostMapping("/member/signup")
+    @PostMapping("/signup")
     public String signup(@ModelAttribute MemberDTO memberDTO) {
         //System.out.println("memberDTO = " + memberDTO);
         memberService.save(memberDTO);
@@ -29,12 +31,12 @@ public class MemberController {
     }
 
 
-    @GetMapping("/member/signin")
+    @GetMapping("/signin")
     public String signinForm() {
         return "member/signin";
     }
 
-    @PostMapping("/member/signin")
+    @PostMapping("/signin")
     public String signin(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
         MemberDTO result = memberService.signin(memberDTO);
         if (result != null) {
@@ -46,13 +48,13 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/member/account")
+    @GetMapping("/account")
     public String accountForm() {
         return "member/account";
     }
 
 
-    @GetMapping("/member/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/";

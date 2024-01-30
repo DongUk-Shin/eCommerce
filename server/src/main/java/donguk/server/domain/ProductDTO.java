@@ -14,6 +14,7 @@ public class ProductDTO {
     private String name;
     private Long price;
     private Long quantity;
+    private String content;
     private String fileName;
     private String fileOriName;
     private String filePath;
@@ -23,10 +24,13 @@ public class ProductDTO {
         productDTO.setName(product.getName());
         productDTO.setPrice(product.getPrice());
         productDTO.setQuantity(product.getQuantity());
+        productDTO.setContent(product.getContent());
 
         productDTO.setFileName(product.getFileName());
         productDTO.setFileOriName(product.getFileOriName());
         productDTO.setFilePath(product.getFilePath());
         return productDTO;
     }
+
+
 }
