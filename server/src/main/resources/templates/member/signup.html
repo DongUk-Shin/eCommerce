@@ -3,26 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
+    <link th:href="@{/css/styles.css}"
+          href="../static/css/styles.css" rel="stylesheet" />
+
 </head>
 <body>
 
-<h1>
-    Sign Up
-</h1>
+<!-- 네비게이션바 & 헤더 -->
+<div th:insert="~{navbarheader :: navbarFragment}"></div>
 
-<form action="/member/signup" method="post">
+<section class="container-fluid" style="min-height: 45vh">
+    <section class="row justify-content-center mt-5">
+        <section class="col-12 col-sm-6 col-md-4" >
 
-    <label for="email">이메일:</label>
-    <input type="email" id="email" name="email" required><br>
+            <form class="form-container " action="/member/signup" method="post">
+                <div class="form-group">
+                    <h4 class="text-center font-weight-bold"> 로그인 </h4>
 
-    <label for="password">비밀번호:</label>
-    <input type="password" id="password" name="password" required><br>
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email"  placeholder="Enter E-mail" required>
+                </div>
 
-    <label for="name">이름:</label>
-    <input type="text" id="name" name="name" required><br>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                </div>
 
-    <input type="submit" value="가입하기">
-</form>
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block  mt-3">회원가입</button>
+
+                <div class="form-footer mt-2">
+                    <p> 계정이 있으신가요? <a href="/member/signin">로그인</a></p>
+                </div>
+
+            </form>
+        </section>
+    </section>
+</section>
+
+<!-- Footer -->
+<footer th:insert="~{footer :: footerFragment}"></footer>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
 
 </body>
 </html>

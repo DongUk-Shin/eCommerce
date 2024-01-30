@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
+    <link th:href="@{/css/styles.css}"
+          href="../static/css/styles.css" rel="stylesheet" />
+
 </head>
 <body>
 
-<h1>
-    Sign In
-</h1>
+<!-- 네비게이션바 & 헤더 -->
+<div th:insert="~{navbarheader :: navbarFragment}"></div>
 
-<form action="/member/signin" method="post">
+<section class="container-fluid"  style="min-height: 45vh">
+    <section class="row justify-content-center mt-5">
+        <section class="col-12 col-sm-6 col-md-4" >
 
-    <label for="email">이메일:</label>
-    <input type="email" id="email" name="email" required><br>
+            <form class="form-container " action="/member/signin" method="post">
+                <div class="form-group">
+                    <h4 class="text-center font-weight-bold"> 로그인 </h4>
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email"  placeholder="Enter E-mail" required>
+                </div>
 
-    <label for="password">비밀번호:</label>
-    <input type="password" id="password" name="password" required><br>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                </div>
 
-    <input type="submit" value="로그인">
-</form>
+                <button type="submit" class="btn btn-primary btn-block  mt-3">로그인</button>
+
+                <div class="form-footer mt-2">
+                    <p> 계정이 없으신가요? <a href="/member/signup">회원가입</a></p>
+                </div>
+
+            </form>
+        </section>
+    </section>
+</section>
+
+<!-- Footer -->
+<footer th:insert="~{footer :: footerFragment}"></footer>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
 
 </body>
 </html>

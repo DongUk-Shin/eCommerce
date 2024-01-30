@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
+    <link th:href="@{/css/styles.css}"
+          href="../static/css/styles.css" rel="stylesheet" />
+
 </head>
 <body>
 
-<h1>
+<!-- 네비게이션바 & 헤더 -->
+<div th:insert="~{navbarheader :: navbarFragment}"></div>
+
+<link th:href="@{/css/styles.css}"
+      href="../static/css/styles.css" rel="stylesheet" />
+
+<h1 style="min-height: 45vh">
     계정정보
 </h1>
+
+<!-- Footer -->
+<footer th:insert="~{footer :: footerFragment}"></footer>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
 
 </body>
 </html>
