@@ -1,7 +1,7 @@
 package donguk.server.service;
 
 import donguk.server.domain.Product;
-import donguk.server.domain.ProductDTO;
+import donguk.server.domain.DTO.ProductDTO;
 import donguk.server.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

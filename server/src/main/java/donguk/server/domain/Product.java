@@ -1,11 +1,10 @@
 package donguk.server.domain;
 
+import donguk.server.domain.DTO.ProductDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter

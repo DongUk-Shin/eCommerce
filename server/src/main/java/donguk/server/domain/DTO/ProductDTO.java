@@ -1,6 +1,6 @@
-package donguk.server.domain;
+package donguk.server.domain.DTO;
 
-import jakarta.persistence.*;
+import donguk.server.domain.Product;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

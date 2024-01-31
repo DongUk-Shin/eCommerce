@@ -1,12 +1,11 @@
 package donguk.server.service;
 
 import donguk.server.domain.Member;
-import donguk.server.domain.MemberDTO;
+import donguk.server.domain.DTO.MemberDTO;
 import donguk.server.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,5 +35,9 @@ public class MemberService {
         } else {
             return null;
         }
+    }
+
+    public Member findById(Long id) {
+        return memberRepository.findById(id).get();
     }
 }

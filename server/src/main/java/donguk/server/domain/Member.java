@@ -1,5 +1,6 @@
 package donguk.server.domain;
 
+import donguk.server.domain.DTO.MemberDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

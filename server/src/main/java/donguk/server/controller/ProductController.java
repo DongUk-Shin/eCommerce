@@ -1,7 +1,7 @@
 package donguk.server.controller;
 
 import donguk.server.domain.Product;
-import donguk.server.domain.ProductDTO;
+import donguk.server.domain.DTO.ProductDTO;
 import donguk.server.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

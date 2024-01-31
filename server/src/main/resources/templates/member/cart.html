@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니</title>
+    <link th:href="@{/css/styles.css}"
+          href="../static/css/styles.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<!-- 네비게이션바 & 헤더 -->
+<div th:insert="~{navbarheader :: navbarFragment}"></div>
+
+<link th:href="@{/css/styles.css}"
+      href="../static/css/styles.css" rel="stylesheet" />
+
+<h1 style="min-height: 45vh">
+    장바구니
+</h1>
+
+<!-- Footer -->
+<footer th:insert="~{footer :: footerFragment}"></footer>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
