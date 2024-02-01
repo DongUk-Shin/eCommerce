@@ -26,7 +26,6 @@ public class MemberService {
 
         if (memberOptional.isPresent()) {
             Member member = memberOptional.get();
-
             if (member.getPassword().equals(memberDTO.getPassword())) {
                 return MemberDTO.toMember(member);
             } else {

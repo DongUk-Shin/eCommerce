@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/member")
@@ -38,6 +39,7 @@ public class MemberController {
     public String signin(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
         MemberDTO result = memberService.signin(memberDTO);
         if (result != null) {
+            session.setAttribute("signinId", result.getId());
             session.setAttribute("signinName", result.getName());
             session.setAttribute("signinEmail", result.getEmail());
             return "redirect:/";
@@ -46,8 +48,10 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/account")
-    public String accountForm() {
+    @GetMapping("/account/{memberId}")
+    public String accountForm(@PathVariable Long memberId, Model model) {
+        Member member = memberService.findById(memberId);
+        model.addAttribute("member", member);
         return "member/account";
     }
 

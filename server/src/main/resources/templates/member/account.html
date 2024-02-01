@@ -15,9 +15,14 @@
 <link th:href="@{/css/styles.css}"
       href="../static/css/styles.css" rel="stylesheet" />
 
-<h1 style="min-height: 45vh">
+<h1>
     계정정보
+
 </h1>
+<p th:text="${member.id}"></p>
+<p th:text="${member.name}"></p>
+<p th:text="${member.email}"></p>
+
 
 <!-- Footer -->
 <footer th:insert="~{footer :: footerFragment}"></footer>

@@ -23,6 +23,7 @@ public class CartController {
     private final ProductService productService;
     private final CartService cartService;
 
+    /*
     @PostMapping("/cart/{productId}")
     public String cartSave(@PathVariable Long productId, HttpSession session) {
         Long memberId = (Long) session.getAttribute("id");
@@ -42,5 +43,5 @@ public class CartController {
         return "cart";
     }
 
-
+    */
 }

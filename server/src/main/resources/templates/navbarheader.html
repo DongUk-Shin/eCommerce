@@ -25,13 +25,15 @@
                 </li>
 
                 <li class="nav-item" th:if="${session.signinName != null}">
-                    <a class="nav-link" th:href="@{/member/account}" href="">내 정보</a>
+                    <a class="nav-link" th:onclick="|location.href='@{/member/account/{memberId}(memberId=${session.signinId})}'|" href="#">내 정보</a>
                 </li>
                 <li class="nav-item" th:if="${session.signinName != null}">
                     <a class="nav-link" th:href="@{/member/logout}" href="">로그아웃</a>
                 </li>
 
             </ul>
+
+
 
             <div class="d-flex" th:if="${session.signinName == null}">
                 <button class="btn btn-outline-dark" th:onclick="|location.href='@{/member/signin}'|" type="button">
